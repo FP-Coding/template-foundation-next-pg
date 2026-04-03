@@ -20,7 +20,8 @@
     "start": "next start",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint:prettier:check": "npx prettier --check .",
-    "lint:eslint:check": "npx eslint ."
+    "lint:eslint:check": "npx eslint .",
+    "prepare": "husky"
   },
   "dependencies": {
     "next": "16.2.2",
@@ -28,9 +29,12 @@
     "react-dom": "19.2.4"
   },
   "devDependencies": {
+    "@commitlint/cli": "^20.5.0",
+    "@commitlint/config-conventional": "^20.5.0",
     "eslint": "9.39.4",
     "eslint-config-next": "16.2.2",
     "eslint-config-prettier": "10.1.8",
+    "husky": "^9.1.7",
     "prettier": "3.8.1"
   }
 }
