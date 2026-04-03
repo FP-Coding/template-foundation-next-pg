@@ -19,7 +19,8 @@
     "build": "next build",
     "start": "next start",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint:prettier:check": "npx prettier --check ."
+    "lint:prettier:check": "npx prettier --check .",
+    "lint:eslint:check": "npx eslint ."
   },
   "dependencies": {
     "next": "16.2.2",
@@ -27,6 +28,9 @@
     "react-dom": "19.2.4"
   },
   "devDependencies": {
+    "eslint": "9.39.4",
+    "eslint-config-next": "16.2.2",
+    "eslint-config-prettier": "10.1.8",
     "prettier": "3.8.1"
   }
 }
