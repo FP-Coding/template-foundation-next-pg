@@ -18,11 +18,15 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint:prettier:check": "npx prettier --check ."
   },
   "dependencies": {
-    "next": "^16.2.2",
-    "react": "^19.2.4",
-    "react-dom": "^19.2.4"
+    "next": "16.2.2",
+    "react": "19.2.4",
+    "react-dom": "19.2.4"
+  },
+  "devDependencies": {
+    "prettier": "3.8.1"
   }
 }
