@@ -40,4 +40,6 @@ const getSSL = () => {
   return process.env.NODE_ENV === "production";
 };
 
-export { getNewClient, query };
+const database = { getNewClient, query };
+
+export default database;

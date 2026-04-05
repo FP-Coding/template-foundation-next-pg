@@ -15,13 +15,13 @@ describe("GET /api/v1/status", () => {
       );
 
       expect(typeof version).toBe("string");
-      expect(version).toBe("1");
+      expect(version).toBe("16.0");
 
       expect(typeof opened_connections).toBe("number");
-      expect(opened_connections).toBe(0);
+      expect(opened_connections).toBe(1);
 
       expect(typeof max_connections).toBe("number");
-      expect(max_connections).toBe(0);
+      expect(max_connections).toBe(100);
     });
   });
 });
