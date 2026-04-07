@@ -1,15 +1,13 @@
 import retry from "async-retry";
 import database from "infra/database";
 
+const API_HOST = process.env.API_HOST;
+
 async function waitForAllServices() {
   await retry(getStatus, { minTimeout: 100, maxTimeout: 1000, retries: 100 });
 
-  async function getStatus(bail, attemptNumber) {
-    console.log(bail);
-
-    console.log(attemptNumber);
-
-    const resultRequest = await fetch("http://localhost:3000/api/v1/status");
+  async function getStatus() {
+    const resultRequest = await fetch(`${API_HOST}/api/v1/status`);
     if (resultRequest.status !== 200) throw new Error();
   }
 }

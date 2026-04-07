@@ -1,6 +1,6 @@
 import orchestrator from "tests/integrations/utils/orchestrator";
 
-const HOST = "http://localhost:3000";
+const API_HOST = process.env.API_HOST;
 
 beforeAll(async () => {
   await orchestrator.waitForAllServices();
@@ -9,7 +9,7 @@ beforeAll(async () => {
 describe("GET /api/v1/status", () => {
   describe("As Anonymous User", () => {
     test("Retrieving current system status", async () => {
-      const response = await fetch(`${HOST}/api/v1/status`);
+      const response = await fetch(`${API_HOST}/api/v1/status`);
       expect(response.status).toBe(200);
 
       const responseBody = await response.json();
