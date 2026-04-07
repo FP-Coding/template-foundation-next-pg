@@ -1,0 +1,28 @@
+import retry from "async-retry";
+import database from "infra/database";
+
+async function waitForAllServices() {
+  await retry(getStatus, { minTimeout: 100, maxTimeout: 1000, retries: 100 });
+
+  async function getStatus(bail, attemptNumber) {
+    console.log(bail);
+
+    console.log(attemptNumber);
+
+    const resultRequest = await fetch("http://localhost:3000/api/v1/status");
+    if (resultRequest.status !== 200) throw new Error();
+  }
+}
+
+async function clearDatabase() {
+  await database.query(
+    "IF EXISTS DROP SCHEMA public CASCADE; CREATE SCHEMA public;",
+  );
+}
+
+const orchestrator = {
+  waitForAllServices,
+  clearDatabase,
+};
+
+export default orchestrator;

@@ -1,4 +1,10 @@
+import orchestrator from "tests/integrations/utils/orchestrator";
+
 const HOST = "http://localhost:3000";
+
+beforeAll(async () => {
+  await orchestrator.waitForAllServices();
+});
 
 describe("GET /api/v1/status", () => {
   describe("As Anonymous User", () => {
