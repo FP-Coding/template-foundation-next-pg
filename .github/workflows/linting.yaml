@@ -13,7 +13,7 @@ jobs:
           node-version: "24.13.0"
       - run: npm ci
 
-      - run: npm lint:eslint:check
+      - run: npm run lint:eslint:check
 
   eslint:
     name: Eslint
@@ -25,7 +25,7 @@ jobs:
           node-version: "24.13.0"
       - run: npm ci
 
-      - run: npm lint:prettier:check
+      - run: npm run lint:prettier:check
 
   commitlint:
     name: Commitlint
