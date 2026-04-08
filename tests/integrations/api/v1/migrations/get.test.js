@@ -9,7 +9,9 @@ beforeAll(async () => {
 describe("GET /api/v1/status", () => {
   describe("As Anonymous User", () => {
     test("Retrieving pending migrations", async () => {
-      expect(true).toBe(true);
+      const response = await fetch(`${API_HOST}/api/v1/migrations`);
+
+      expect(Array.isArray(response)).toBe(true);
     });
   });
 });
