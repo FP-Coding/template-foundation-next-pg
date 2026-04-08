@@ -1,0 +1,16 @@
+name: Tests
+
+on: pull_request
+
+jobs:
+  Tests:
+    name: Jest-Ubuntu
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: setup-node@v4
+        with:
+          node-version: Krypton
+      - run: npm ci
+
+      - run: npm test
