@@ -1,6 +1,6 @@
 import { Client } from "pg";
 
-const getNewClient = async () => {
+const getNewDbClient = async () => {
   const clientConfig = {
     user: process.env.POSTGRES_USER,
     password: process.env.POSTGRES_PASSWORD,
@@ -20,7 +20,7 @@ const getNewClient = async () => {
 const query = async (queryObject) => {
   let client;
   try {
-    client = await getNewClient();
+    client = await getNewDbClient();
     const resultQuery = await client.query(queryObject);
     return resultQuery;
   } catch (err) {
@@ -40,6 +40,6 @@ const getSSL = () => {
   return process.env.NODE_ENV === "production";
 };
 
-const database = { getNewClient, query };
+const database = { getNewDbClient, query };
 
 export default database;

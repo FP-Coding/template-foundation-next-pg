@@ -4,7 +4,7 @@ import database from "infra/database";
 const API_HOST = process.env.API_HOST;
 
 async function waitForAllServices() {
-  await retry(getStatus, { minTimeout: 100, maxTimeout: 1000, retries: 100 });
+  await retry(getStatus, { minTimeout: 500, maxTimeout: 1000, retries: 100 });
 
   async function getStatus() {
     const resultRequest = await fetch(`${API_HOST}/api/v1/status`);
@@ -14,7 +14,7 @@ async function waitForAllServices() {
 
 async function clearDatabase() {
   await database.query(
-    "IF EXISTS DROP SCHEMA public CASCADE; CREATE SCHEMA public;",
+    "DROP SCHEMA IF EXISTS public CASCADE; CREATE SCHEMA public;",
   );
 }
 
